@@ -66,8 +66,8 @@ function refresh() {
   var list = qsa('#peerList')[0];
   for (var i = 0; i < keys.length; i++) {
     var peer = peers[keys[i]];
-    var existing = qsa('#' + peer.id);
-    if (existing && existing.length > 0) continue;
+    var existing = qsa('#' + peer.id)[0]
+    if (existing) continue;
     var element = crel('a', { href: '#', class: 'peer-link', 'data-peer': peer.id, id: peer.id }, peer.alias);  
     element.addEventListener('click', handlePeer);
     list.appendChild(element);
